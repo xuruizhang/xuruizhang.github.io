@@ -352,322 +352,26 @@
       
         
           
-            <h3 id="Java语言概述"><a href="#Java语言概述" class="headerlink" title="Java语言概述"></a>Java语言概述</h3><p>主要是考察一些基本的常识记忆性的知识。主要可包括以下几点：</p>
-<ol>
-<li><p>Java语言特性</p>
-</li>
-<li><p>Java核心机制</p>
-</li>
-<li><p>JVM JRE JDK 三者的区别联系</p>
-</li>
-<li><p>Java的编译与运行（以.java 和.class结尾文件引发的考题，包括javac和java命令）</p>
-</li>
-<li><p>注释 单行注释 多行注释 文档注释</p>
-<p>​</p>
-</li>
-</ol>
-<h4 id="详细分析"><a href="#详细分析" class="headerlink" title="详细分析"></a>详细分析</h4><h5 id="一、Java语言特性："><a href="#一、Java语言特性：" class="headerlink" title="一、Java语言特性："></a>一、Java语言特性：</h5><ol>
-<li><p>面向对象 </p>
-<p>两个基本概念：类、对象</p>
-<p>三个特性：封装、继承、多态</p>
-</li>
-<li><p>健壮性</p>
-<ol>
-<li>吸收了C/C++语言的优点，去掉了其影响程序健壮性的部分，如指针，内存的申请和释放等，提供了相对安全的的内存管理和访问机制</li>
-<li>Java的强类型机制、异常处理、垃圾自动回收机制都是Java语言健壮性的重要保证。</li>
-</ol>
-</li>
-<li><p>跨平台特性</p>
-<p>通过Java语言编写的应用程序在不同的系统平台上都可以运行。”write once,Run anywhere”，”一次编译，到处运行”。</p>
-<p>原理：只要在需要运行 java 应用程序的操作系统上，先安装一个Java虚拟机 (JVM Java Virtual Machine) 即可。由JVM来负责Java程序在该系统中的运行。</p>
-</li>
-</ol>
-<h5 id="二、Java核心机制"><a href="#二、Java核心机制" class="headerlink" title="二、Java核心机制"></a>二、Java核心机制</h5><ol>
-<li><p>Java虚拟机</p>
-<ul>
-<li>JVM 是一个虚拟的计算机，具有指令集并使用不同的存储区域。负责执行指令，管理数据、内存、寄存器。</li>
-<li>对于不同的平台，有不同的虚拟机。</li>
-<li>Java虚拟机机制屏蔽了底层运行平台的差别，实现了“一次编译，到处运行”</li>
-</ul>
-<p><a href="https://i.loli.net/2018/04/03/5ac34d43bc444.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/04/03/5ac34d43bc444.png" alt="javaJVM.png"></a></p>
-</li>
-<li><p>垃圾回收</p>
-<ul>
-<li>即对不再使用的内存空间应回收。<br>在C/C++等语言中，由程序员负责回收无用内存。Java 语言消除了程序员回收无用内存空间的责任。Java提供一种系统级线程，用它来跟踪存储空间的分配情况。并在JVM空闲时，检查并释放那些可被释放的存储空间。</li>
-<li>垃圾回收在Java程序运行过程中自动进行，程序员无法精确控制和干预。</li>
-</ul>
-</li>
-</ol>
-<h5 id="三、JDK、JRE、JVM区别与联系"><a href="#三、JDK、JRE、JVM区别与联系" class="headerlink" title="三、JDK、JRE、JVM区别与联系"></a>三、JDK、JRE、JVM区别与联系</h5><ol>
-<li><p>JDK，Java Development Kit Java 开发工具包。提供给开发人员使用，包含Java开发工具,JRE。开发工具包括：编译工具javac，打包工具jar等等。</p>
-</li>
-<li><p>JRE，Java Runtime Environment Java 运行环境。包括JVM和Java所需的核心类库。只是运行程序则只需要JRE即可。</p>
-</li>
-<li><p>简单记忆：</p>
-<p>JDK = JRE + 开发工具集</p>
-<p>JRE = JVM + JavaSE标准类库</p>
-<p><a href="https://i.loli.net/2018/04/03/5ac34d43c1180.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/04/03/5ac34d43c1180.png" alt="jdkjrejvm.png"></a></p>
-</li>
-</ol>
-<h5 id="四、Java的编译与运行"><a href="#四、Java的编译与运行" class="headerlink" title="四、Java的编译与运行"></a>四、Java的编译与运行</h5><p>用.java文件编写源码。javac命令进行编译 ，如编写一个Test.java，javac Test.java后生成一个Test.class的字节码文件。java Test运行字节码文件。<br><a href="https://i.loli.net/2018/04/03/5ac34d43c1835.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/04/03/5ac34d43c1835.png" alt="java编译.png"></a></p>
-<h5 id="五、Java注释"><a href="#五、Java注释" class="headerlink" title="五、Java注释"></a>五、Java注释</h5><p><a href="https://i.loli.net/2018/04/03/5ac34f108be91.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/04/03/5ac34f108be91.png" alt="注释.PNG"></a></p>
-<ol>
-<li>单行注释和多行注释被注释的文字不会被JVM解释执行。</li>
-<li>多行注释里不允许有多行注释嵌套</li>
-<li>文档注释是Java特有的，它的格式为：</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"><span class="doctag">@author</span> 指定java 程序的作者</span></span><br><span class="line"><span class="comment">*<span class="doctag">@version</span> 指定源文件的版本</span></span><br><span class="line"><span class="comment">*<span class="doctag">@param</span> 方法的参数说明信息</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<p>​    注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的该程序的说明文档。</p>
-<p>​        命令示例：javadoc -d mydoc -author -version Test.java</p>
+          Java语言概述主要是考察一些基本的常识记忆性的知识。主要可包括以下几点：
 
-          
-        
-      
-    </div>
-    
-    
-    
+Java语言特性
 
-    
+Java核心机制
 
-    
+JVM JRE JDK 三者的区别联系
 
-    
+Java的编译与运行（以.java 和.class结尾文件引发的考题，包括javac和java命令）
 
-    <footer class="post-footer">
-      
+注释 单行注释 多行注释 文档注释
 
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.monkas.com/2018/03/28/HEXO-第一篇文章/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhang Xurui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xr's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/28/HEXO-第一篇文章/" itemprop="url">HEXO 第一篇文章</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-28T18:54:12+08:00">
-                2018-03-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.monkas.com/2018/03/28/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zhang Xurui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Xr's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/28/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-28T18:46:24+08:00">
-                2018-03-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/03/1.Java基本概念/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -751,7 +455,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
